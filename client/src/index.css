@@ -1,0 +1,48 @@
+:root {
+  --color-1: #5D2A42;
+  --color-errors: #FB6376;
+  --color-text: #FCB1A6;
+  --color-4: #FFDCCC;
+  --color-bg: #FFF9EC;
+}
+/* 
+:root {
+  --color-1: #442B48;
+  --color-errors: #726E60;
+  --color-text: #98B06F;
+  --color-4: #B6DC76;
+  --color-bg: #DBFF76;
+} */
+
+
+@media screen and (max-width: 500px) {
+  body {
+   background-color: #FFDCCC;
+   margin: 0;
+  
+    
+  }
+
+  .mainbar{
+    background-color: aliceblue;
+    padding: 6px;
+  }
+
+  .nahelbar{
+  text-align: end;
+  padding: 0 6px;
+  font-size: 20px;
+  
+  }
+
+  .navbar{
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 680px) {
+  
+}
