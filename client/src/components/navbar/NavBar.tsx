@@ -6,9 +6,9 @@ const NavBar = () => {
     <main className="mainbar">
       <div className="nahelbar">נהל-לי</div>
     <div className="navbar">
-    <NavLink to="/pricing">מנוי</NavLink> 
-     <NavLink to="/">בית</NavLink> 
-     <NavLink to="/register">התחבר</NavLink> 
+    <NavLink to="/pricing" className="navbarlist">מנוי</NavLink> 
+     <NavLink to="/" className="navbarlist">בית</NavLink> 
+     <NavLink to="/login" className="navbarlist">התחבר</NavLink> 
     </div>  
     </main>
   )
