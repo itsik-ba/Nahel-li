@@ -6,9 +6,8 @@ const SearchBar = () => {
    <input 
    type="text" 
    placeholder="חיפוש לקוח" 
-   className={styles.searchInput}
-   
-   />
+   className={styles.searchInput}/>
+   <button>חפש</button>
     </div>
   )
 }

@@ -3,10 +3,18 @@
 .mainSideBar{
     display: flex;
     justify-content: center;
+}
+
+.bgSideBar{
+    background-color:deepskyblue;
+    padding: 20px 20px;
+    border-radius: 12%;
     
 }
 
 .sideBarLists{
     font-size: 20px;
-    padding: 5px;
+    border-radius: 25px;
+    background-color: chocolate;
+    margin: 0 5px;
 }

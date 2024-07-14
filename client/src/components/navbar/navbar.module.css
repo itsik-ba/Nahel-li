@@ -31,7 +31,8 @@
   
     .navbarlist{
       text-decoration: none;
-      color: #1ffc74;
+      color: #05e0ef;
+      font-weight: bold;
   }
  }
 
@@ -41,7 +42,6 @@
   
   
     .mainBar{
-      background-color: rgb(229, 236, 11);
       padding: 20px;
       position: sticky;
       top: 0;
@@ -63,7 +63,8 @@
   
     .navbarlist{
       text-decoration: none;
-      color: #1ffc74;
+      color: #05e0ef;
+      font-weight: bold;
   }
 }
   
@@ -94,6 +95,7 @@
   
     .navbarlist{
       text-decoration: none;
-      color: #1ffc74;
+      color: #05e0ef;
+      font-weight: bold;
   }
     }

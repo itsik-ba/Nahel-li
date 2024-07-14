@@ -1,14 +1,38 @@
+
 import styles from "./sideBar.module.css";
 
 
-const SideBar = () => {
+interface SideBarProps {
+  onSelectComponent: (component: string) => void;
+}
+
+
+const SideBar: React.FC<SideBarProps> = ({onSelectComponent}) => {
+  
   return (
     <div className={styles.mainSideBar}>
-      <button className={styles.sideBarLists}>עזרים</button>
-      <button className={styles.sideBarLists}>ניהול מלאי</button>
-      <button className={styles.sideBarLists}>יצירת לקוח</button>
-      <button className={styles.sideBarLists}>ניהול יומן</button>
-    </div>
+      <div className={styles.bgSideBar}>
+      <button 
+      className={styles.sideBarLists}
+      onClick={() => onSelectComponent('Accessories')}
+      >עזרים</button>
+
+      <button 
+      className={styles.sideBarLists}
+      onClick={() => onSelectComponent('Inventory')}
+      >ניהול מלאי</button>
+
+      <button 
+      className={styles.sideBarLists}
+      onClick={() => onSelectComponent('Dairy')}
+      >ניהול יומן</button>
+
+      <button 
+      className={styles.sideBarLists}
+      onClick={() => onSelectComponent('CreateCustomer')}
+      >יצירת לקוח</button>
+     </div>
+  </div>
   )
 }
 
