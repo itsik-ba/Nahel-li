@@ -1,9 +1,14 @@
-
+import styles from "./search.module.css"
 
 const SearchBar = () => {
   return (
-    <div>
-   <input type="text" placeholder="חיפוש לקוח" />
+    <div className={styles.mainSearch}>
+   <input 
+   type="text" 
+   placeholder="חיפוש לקוח" 
+   className={styles.searchInput}
+   
+   />
     </div>
   )
 }

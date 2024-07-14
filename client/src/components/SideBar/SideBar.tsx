@@ -1,13 +1,13 @@
-
+import styles from "./sideBar.module.css";
 
 
 const SideBar = () => {
   return (
-    <div className="sidebarLiasts">
-      <p className="sidebarLiasts">יצירת לקוח</p>
-      <p className="sidebarLiasts">ניהול יומן</p>
-      <p className="sidebarLiasts">ניהול מלאי</p>
-      <p className="sidebarLiasts">עזרים</p>
+    <div className={styles.mainSideBar}>
+      <button className={styles.sideBarLists}>עזרים</button>
+      <button className={styles.sideBarLists}>ניהול מלאי</button>
+      <button className={styles.sideBarLists}>יצירת לקוח</button>
+      <button className={styles.sideBarLists}>ניהול יומן</button>
     </div>
   )
 }

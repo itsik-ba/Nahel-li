@@ -1,0 +1,12 @@
+
+
+.mainSideBar{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.sideBarLists{
+    font-size: 20px;
+    padding: 5px;
+}

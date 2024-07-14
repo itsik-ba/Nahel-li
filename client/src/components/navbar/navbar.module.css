@@ -1,0 +1,99 @@
+:root {
+    --color-1: #5D2A42;
+    --color-errors: #FB6376;
+    --color-text: #FCB1A6;
+    --color-4: #FFDCCC;
+    --color-bg: #FFF9EC;
+  }
+
+  /* Small Screen */
+
+@media screen and (max-width: 500px) {
+    
+  .mainBar{
+      background-color: aliceblue;
+      padding: 20px;
+    }
+  
+    .nahelbar{
+    text-align: end;
+    padding: 0 6px;
+    font-size: 20px;
+    
+    }
+  
+    .navbar{
+      display: flex;
+      justify-content: space-around;
+      cursor: pointer;
+      font-size: 20px;
+    }
+  
+    .navbarlist{
+      text-decoration: none;
+      color: #1ffc74;
+  }
+ }
+
+/* Medium Screen */
+
+@media screen and (min-width: 501px) and (max-width: 850px) {
+  
+  
+    .mainBar{
+      background-color: rgb(229, 236, 11);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+    }
+  
+    .nahelbar{
+    text-align: end;
+    padding: 0 6px;
+    font-size: 20px;
+    
+    }
+  
+    .navbar{
+      display: flex;
+      justify-content: space-around;
+      cursor: pointer;
+      font-size: 20px;
+    }
+  
+    .navbarlist{
+      text-decoration: none;
+      color: #1ffc74;
+  }
+}
+  
+  
+  @media screen and (min-width: 851px)  {
+    
+   
+.mainBar{
+      background-color: aliceblue;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+    }
+  
+    .nahelbar{
+    text-align: end;
+    padding: 0 6px;
+    font-size: 20px;
+    
+    }
+  
+    .navbar{
+      display: flex;
+      justify-content: space-around;
+      cursor: pointer;
+      font-size: 20px;
+    }
+  
+    .navbarlist{
+      text-decoration: none;
+      color: #1ffc74;
+  }
+    }

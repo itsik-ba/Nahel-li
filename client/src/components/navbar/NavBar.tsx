@@ -1,14 +1,26 @@
-import { NavLink } from "react-router-dom"
-import "../../index.css"
+import { NavLink, useNavigate } from "react-router-dom";
+import  styles  from "./navbar.module.css";
+import SearchBar from "../searchBar/SearchBar";
+import { useState } from "react";
 
 const NavBar = () => {
+  
+  const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogOut = () =>{
+   setIsLogin(false);
+   navigate('./homePage')
+  }
+
+
   return (
-    <main className="mainbar">
-      <div className="nahelbar">נהל-לי</div>
-    <div className="navbar">
-    <NavLink to="/pricing" className="navbarlist">מנוי</NavLink> 
-     <NavLink to="/" className="navbarlist">בית</NavLink> 
-     <NavLink to="/login" className="navbarlist">התחבר</NavLink> 
+    <main className={styles.mainBar}>
+      <div className={styles.nahelbar}></div>
+    <div className={styles.navbar}>
+     {!isLogin ? <NavLink to="/pricing" className={styles.navbarlist}>מנוי</NavLink> : <button>החשבון שלי</button> }
+    {!isLogin ? <NavLink to="/" className={styles.navbarlist}>בית</NavLink> : <SearchBar/> }
+     {!isLogin ?<NavLink to="/login" className={styles.navbarlist}>התחבר</NavLink> : <button onClick={handleLogOut}>התנתק</button> }
     </div>  
     </main>
   )
