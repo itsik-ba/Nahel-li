@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom"
 
-import Pricing from "../pages/Pricing"
-import HomePage from "../pages/HomePage"
-import MainAppPage from "../pages/MainAppPage"
+import Pricing from "../pages/pricing/Pricing"
+import HomePage from "../pages/homePage/HomePage"
+import MainAppPage from "../pages/mainApp/MainAppPage"
 
 
 
