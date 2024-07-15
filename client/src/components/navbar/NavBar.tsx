@@ -4,7 +4,7 @@ import SearchBar from "../searchBar/SearchBar";
 import { useState } from "react";
 
 const NavBar = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
 
   const handleLogOut = () => {

@@ -2,8 +2,16 @@
 
 
 const Login = () => {
+    
+
+
   return (
-    <div>Login</div>
+    <>
+    <form action="">
+      <label htmlFor=""></label>
+      <input type="text" />
+    </form>
+    </>
   )
 }
 
