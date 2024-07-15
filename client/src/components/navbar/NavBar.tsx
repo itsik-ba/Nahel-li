@@ -9,7 +9,7 @@ const NavBar = () => {
 
   const handleLogOut = () => {
     setIsLogin(false);
-    navigate('./homePage');
+    navigate('./');
   }
 
   return (
