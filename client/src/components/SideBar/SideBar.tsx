@@ -30,7 +30,7 @@ const SideBar: React.FC<SideBarProps> = ({onSelectComponent}) => {
       <button 
       className={styles.sideBarLists}
       onClick={() => onSelectComponent('CreateCustomer')}
-      >יצירת לקוח</button>
+      >יצירת לקוח/ה</button>
      </div>
   </div>
   )

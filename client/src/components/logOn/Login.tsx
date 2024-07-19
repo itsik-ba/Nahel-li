@@ -1,11 +1,30 @@
 import { useState } from "react"
 import styles from "./login.module.css"
 import Register from "./Register";
+import { useNavigate } from "react-router-dom";
 
 
-const Login = () => {
-    
-  const [loginOrRegister, setLoginOrRegister] = useState(true);
+interface LoginProps {
+  setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+
+
+const Login:React.FC<LoginProps> = ({ setIsLogin })  => {
+   const [loginOrRegister, setLoginOrRegister] = useState(true);
+
+   const navigate = useNavigate()
+
+  const handleLogin =  () => {
+    try {
+      setIsLogin(true)
+      navigate("../mainApp")
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   const isLogin = () =>{
      setLoginOrRegister(true)
@@ -25,11 +44,11 @@ const Login = () => {
      
      <div className={styles.card}>
    
-    <form dir="rtl">
+   
 
       {loginOrRegister ? 
-          
-          <><div className="userEmail">
+          <> <form dir="rtl" onSubmit={handleLogin}>
+               <div className="userEmail">
                   <label htmlFor="userEmail">מייל:</label>
                   <input
                     type="email"
@@ -43,13 +62,14 @@ const Login = () => {
                       name="userPassword" />
                   </div>
                   <button type="submit">התחבר</button>
+                  </form>
                   </>
      
         :
            <><Register /></>
           }
 
-    </form>
+   
       </div>
       </div>
     </div>

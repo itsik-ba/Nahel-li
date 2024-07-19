@@ -1,15 +1,29 @@
 
 
 const Register = () => {
+
+
+const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>)=>{
+  event.preventDefault();
+  console.log('register');
+}
+
+
+
+
+
+
   return (
-    <div>
-        <div className="fullName">
+    
+        <> <form dir="rtl" onSubmit={handleSubmitForm}>
+               <div className="fullName">
                   <label htmlFor="fullName">שם משתמש:</label>
                   <input
                     type="text"
                     id="fullName"
                     name="fullName" />
-                </div><div className="userEmail">
+                </div>
+                   <div className="userEmail">
                     <label htmlFor="userEmail">מייל:</label>
                     <input
                       type="email"
@@ -28,9 +42,12 @@ const Register = () => {
                       id="userPassword"
                       name="userPassword" />
                   </div><div>
-                    <button type="submit">הרשם</button>
+                    <button
+                     type="submit">הרשם</button>
                   </div>
-    </div>
+                  </form>
+               </>
+   
   )
 }
 

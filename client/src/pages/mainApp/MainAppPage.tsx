@@ -6,10 +6,15 @@ import Dairy from "../../components/SideBar/dairy/Dairy";
 import Accessories from "../../components/SideBar/Accessories/Accessories";
 import Inventory from "../../components/SideBar/Inventory/Inventory";
 
+interface MainAppProps {
+  setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 
 
-const MainAppPage = () => {
+const MainAppPage: React.FC<MainAppProps> = ({setIsLogin}) => {
+   
+   setIsLogin(true)
 
   const [selectedComponent, setSelectedComponent] = useState<string | null>(null);
 

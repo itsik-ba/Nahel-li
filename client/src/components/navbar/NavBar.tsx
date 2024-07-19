@@ -1,10 +1,16 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import styles from "./navbar.module.css";
 import SearchBar from "../searchBar/SearchBar";
-import { useState } from "react";
 
-const NavBar = () => {
-  const [isLogin, setIsLogin] = useState(false);
+
+interface NavBarProps {
+  isLogin: boolean;
+  setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+
+const NavBar: React.FC<NavBarProps> = ({ isLogin, setIsLogin }) => {
+ 
   const navigate = useNavigate();
 
   const handleLogOut = () => {
