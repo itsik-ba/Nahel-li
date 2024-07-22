@@ -1,20 +1,30 @@
 import styles from "./mainApp.module.css"
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SideBar from "../../components/SideBar/SideBar"
-import { useState } from "react";
 import CreateCustomer from "../../components/SideBar/createCustomer/CreateCustomer";
 import Dairy from "../../components/SideBar/dairy/Dairy";
 import Accessories from "../../components/SideBar/Accessories/Accessories";
 import Inventory from "../../components/SideBar/Inventory/Inventory";
+
+
+
 
 interface MainAppProps {
   setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 
-
 const MainAppPage: React.FC<MainAppProps> = ({setIsLogin}) => {
+  const navigate = useNavigate();
    
-   setIsLogin(true)
+  useEffect(() => {
+    
+    // setIsLogin(true);
+    
+  }, [setIsLogin]);
+
+ 
 
   const [selectedComponent, setSelectedComponent] = useState<string | null>(null);
 

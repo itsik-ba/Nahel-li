@@ -2,7 +2,9 @@
 
 const Dairy = () => {
   return (
-    <div>Dairy</div>
+    <div>
+      fffff
+    </div>
   )
 }
 
