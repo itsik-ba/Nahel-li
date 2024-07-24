@@ -1,0 +1,31 @@
+.card{
+    display: flex;
+    justify-content: center;
+    direction: rtl;
+    
+}
+
+.mainCard{
+   width: 400px;
+   height: 600px;
+   border: 2px solid rgb(123, 124, 123); 
+   border-radius: 38px;
+  
+ }
+
+ .customerInfo{
+    padding: 20px 10px;
+    text-align: right;
+    }
+
+.textArea{
+ background-color: rgb(218, 218, 218);
+ height: 200px;
+ width: 100%;
+ border-radius: 10px;
+}
+
+.panel{
+ background-color: darksalmon; 
+ width: 100%;
+}
