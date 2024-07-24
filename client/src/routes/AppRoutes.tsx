@@ -5,23 +5,17 @@ import MainAppPage from "../pages/mainApp/MainAppPage"
 import Login from "../components/logOn/Login"
 
 
-interface AppRoutesProps {
-  setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
-const AppRoutes: React.FC<AppRoutesProps> = ({ setIsLogin })=> {
+const AppRoutes: React.FC = ()=> {
    
 
-
-
-
-  return (
+return (
     <Routes>
          <Route path="/" element={<HomePage/>} />
          <Route path="/pricing" element={<Pricing/>} />
-         <Route path="/login" element={<Login setIsLogin={setIsLogin}/>} />
+         <Route path="/login" element={<Login/>} />
 
-         <Route path="/mainApp" element={<MainAppPage setIsLogin={setIsLogin}/>} />
+         <Route path="/mainApp" element={<MainAppPage/>} />
       
         
         

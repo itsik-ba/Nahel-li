@@ -1,29 +1,20 @@
 import styles from "./mainApp.module.css"
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {  useState } from "react";
+
 import SideBar from "../../components/SideBar/SideBar"
 import CreateCustomer from "../../components/SideBar/createCustomer/CreateCustomer";
 import Dairy from "../../components/SideBar/dairy/Dairy";
 import Accessories from "../../components/SideBar/Accessories/Accessories";
 import Inventory from "../../components/SideBar/Inventory/Inventory";
+import CustomerCard from "../../components/SideBar/customerCard/CustomerCard";
 
 
 
 
-interface MainAppProps {
-  setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
-
-const MainAppPage: React.FC<MainAppProps> = ({setIsLogin}) => {
-  const navigate = useNavigate();
-   
-  useEffect(() => {
-    
-    // setIsLogin(true);
-    
-  }, [setIsLogin]);
-
+const MainAppPage: React.FC = () => {
+ 
+ 
  
 
   const [selectedComponent, setSelectedComponent] = useState<string | null>(null);
@@ -39,7 +30,9 @@ const MainAppPage: React.FC<MainAppProps> = ({setIsLogin}) => {
     } else if (selectedComponent === 'CreateCustomer') {
       return <CreateCustomer />;
     } else {
-      return <div>בוא נתחיל , בחר לך אחת מהאופציות ונתחיל לעבוד</div>;
+      return <div>
+              <CustomerCard />
+            </div>;
     }
   };
   

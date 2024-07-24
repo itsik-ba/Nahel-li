@@ -39,6 +39,7 @@ const CreateCustomer = () => {
         <div>
           <label>Name:</label>
           <input
+            autoComplete="off"
             type="text"
             name="name"
             value={formData.name}
@@ -49,6 +50,7 @@ const CreateCustomer = () => {
         <div>
           <label>Phone:</label>
           <input
+            autoComplete="off"
             type="text"
             name="phone"
             value={formData.phone}
@@ -58,6 +60,7 @@ const CreateCustomer = () => {
         <div>
           <label>Email:</label>
           <input
+            autoComplete="off"
             type="email"
             name="email"
             value={formData.email}
@@ -67,6 +70,7 @@ const CreateCustomer = () => {
         <div>
           <label>Age:</label>
           <input
+            autoComplete="off"
             type="date"
             name="dob"
             value={formData.dob}
