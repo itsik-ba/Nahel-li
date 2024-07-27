@@ -18,7 +18,7 @@ const NavBar: React.FC = () => {
           <>
             <NavLink to="/pricing" className={styles.navbarlist}>מנוי</NavLink>
             <NavLink to="/" className={styles.navbarlist}>בית</NavLink>
-            <NavLink to="/login" className={styles.navbarlist}>התחבר</NavLink>
+            <div className={styles.navbarlist}>logo</div>
           </>
        
       

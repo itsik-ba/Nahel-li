@@ -1,18 +1,18 @@
 import styles from "./login.module.css"
-
+import { useNavigate } from "react-router-dom";
 
 
 
 
 
 const Login:React.FC = ()  => {
-  
+  const navigate = useNavigate()
 
    
   const handleLogin =  () => {
     try {
     
-      
+      navigate("./NewPassword")
     } catch (error) {
       console.log(error);
     }
