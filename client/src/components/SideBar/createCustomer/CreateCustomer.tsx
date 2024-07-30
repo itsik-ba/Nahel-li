@@ -5,6 +5,7 @@ interface FormData {
   phone: string;
   email: string;
   dob: string;
+  info: string;
 }
 
 const CreateCustomer = () => {
@@ -14,6 +15,7 @@ const CreateCustomer = () => {
     phone: '',
     email: '',
     dob: '',
+    info:'',
   });
 
  
@@ -23,7 +25,7 @@ const CreateCustomer = () => {
   }
 
 
-  const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -33,11 +35,11 @@ const CreateCustomer = () => {
 
 
   return (
-    <div>
+    <div dir="rtl">
     
     <form onSubmit={handleSubmit}>
         <div>
-          <label>Name:</label>
+          <label>שם:</label>
           <input
             autoComplete="off"
             type="text"
@@ -48,17 +50,17 @@ const CreateCustomer = () => {
         </div>
         
         <div>
-          <label>Phone:</label>
+          <label>טלפון:</label>
           <input
             autoComplete="off"
-            type="text"
+            type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
           />
         </div>
         <div>
-          <label>Email:</label>
+          <label>מייל:</label>
           <input
             autoComplete="off"
             type="email"
@@ -68,13 +70,23 @@ const CreateCustomer = () => {
           />
         </div>
         <div>
-          <label>Age:</label>
+          <label>גיל:</label>
           <input
             autoComplete="off"
             type="date"
             name="dob"
             value={formData.dob}
             onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label>הערות:</label>
+          <textarea
+              name="info"
+              value={formData.info}
+              onChange={handleChange}
+              rows={4}  
+              cols={30} 
           />
         </div>
         <button type="submit">Submit</button>

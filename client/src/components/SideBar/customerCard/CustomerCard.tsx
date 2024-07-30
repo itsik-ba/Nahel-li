@@ -28,8 +28,7 @@ const CustomerCard = () => {
         >
         
         </textarea>
-        <button>add</button>
-        </div>
+       </div>
 
       <div className={styled.panel}>
         <button>עידכון לקוח</button>
