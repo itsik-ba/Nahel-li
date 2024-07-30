@@ -2,7 +2,10 @@
 
 
 
-export const firstTimeLogin = async () => {
+export const firstTimeLogin = async (req:any, res:any) => {
+
+   const {email , oneTimePassword} = req.body
+
     try {
         
         

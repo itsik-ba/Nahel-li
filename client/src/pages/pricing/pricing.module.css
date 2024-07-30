@@ -1,0 +1,84 @@
+/* מרכז את ה-div המכיל את הטבלה */
+.mainTable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 50px;
+  }
+  
+  /* עיצוב הטבלה */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 900px; /* שינוי בהתאם לצורך */
+    margin: 0 auto; /* מרכז את הטבלה בתוך ה-div */
+  }
+  
+  /* עיצוב כותרות הטבלה */
+  th, td {
+    border: 1px solid #ddd;
+    padding: 16px; /* רווח פנימי בתאים */
+    text-align: center;
+  }
+  
+  /* עיצוב כותרות */
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  /* רווח בין שורות */
+  tbody tr:not(:last-child) {
+    border-bottom: 2px solid #ddd; /* רווח בין השורות */
+  }
+  
+  /* צבע חלופי לשורות */
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* צבע חלופי לשורות עכורות */
+  /* tr:hover {
+    background-color: #f1f1f1;
+  } */
+
+  /* עיצוב השורה התחתונה עם הכפתורים */
+.buttonRow {
+    background-color: #f4f4f4; /* צבע רקע לשורה התחתונה */
+    font-weight: bold;
+  }
+  
+  /* עיצוב הכפתור */
+  .button {
+    background-color: #007bff; /* צבע הרקע של הכפתור */
+    color: white; /* צבע הטקסט */
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px; /* פינות מעוגלות לכפתור */
+  }
+  
+  /* עיצוב הכפתור בעת ריחוף */
+  .button:hover {
+    background-color: #0056b3; /* צבע הרקע בעת ריחוף */
+  }
+  
+  /* עיצוב הדיב עם האינפוט */
+.inputContainer {
+    margin-top: 10px; /* רווח מעל הדיב */
+    text-align: center; /* מרכז את התוכן */
+  }
+  
+  .inputContainer input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-width: 400px; /* רוחב מקסימלי */
+  }

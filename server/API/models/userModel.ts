@@ -20,6 +20,7 @@ const UserSchema = new mongoose.Schema({
 
    newPassword: {
     type: String,
+    default: "",
   },
 
   passwordChanged: {
