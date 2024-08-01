@@ -1,0 +1,73 @@
+.homePageContainer {
+    display: flex;
+  }
+  
+  .about-box {
+    flex: 3; /* Take up 3/4 of the container */
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+  }
+  
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Take up 1/4 of the container */
+  }
+  
+  .login-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 20px auto; /* Add equal margin on all sides and center it */
+    width: 200px; /* Set desired width */
+    height: 150px; /* Set desired height */
+    background-color: rgb(0, 183, 255); /* Ensure the box is blue */
+  }
+  
+  .connected-box {
+    padding: 20px;
+    border: 1px solid #ccc;
+    flex-grow: 1;
+  }
+  
+  .contact-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contact-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .contact-list i {
+    margin-right: 10px;
+    font-size: 1.5em;
+  }
+  
+  /* Ensure FontAwesome icons are styled correctly */
+  .contact-list .fa {
+    margin-right: 10px;
+  }
+  
+  .mainForm {
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 180px;
+    height: 120px;
+    background: rgb(0, 183, 255);
+  }
+  
+  .btnlogin, .btnregister {
+    width: 50%;
+    font-size: 16px;
+  }
+  
