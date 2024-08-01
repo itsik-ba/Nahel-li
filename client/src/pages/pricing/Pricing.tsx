@@ -1,30 +1,54 @@
-import { useState } from "react";
+import { useState, FormEvent} from "react";
 import styled from "./pricing.module.css";
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const Pricing = () => {
   const [trialVersion, setTrialVersion] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate()
+
 
   const handleButtonClick = (plan: "pro" | "starting" | "try") => {
     setTrialVersion(true);
     setSelectedPlan(plan);
   };
 
+  const handleSubmitEmail = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (!email.includes("@")) {
+      setMessage("אנא הכנס מייל תקין.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await axios.post("http://localhost:3000/user/UserSendEmail", {
+        email,
+        selectedPlan,
+      });
+      
+      console.log(response);
+      setMessage("המייל נשלח בהצלחה!");
+      setEmail("");
+      setTrialVersion(false);
+      navigate("/newPassword")
+
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setMessage("אירעה שגיאה בשליחת המייל. אנא נסה שוב.");
+
+    } finally {
+      setLoading(false);
+    }
+ }
  
-  const handleEmailInput = async () => {
-    console.log("Selected Plan:", selectedPlan)
-    console.log("Entered Email:", email);
-  }
- 
-
-
-
-
-
-
 
 
   return (
@@ -68,18 +92,23 @@ const Pricing = () => {
         </div>
       </div>
       {trialVersion && ( <div className={styled.inputContainer}>
+        <form onSubmit={handleSubmitEmail}>
         <input 
           type="email" 
+          value={email} 
           placeholder="הכנס את המייל שלך כאן" 
           className={styled.inputContainer}
           onChange={(event)=> setEmail(event.target.value)}
           />
         <button 
         className={styled.button}
-        onClick={handleEmailInput}
-        >שלח</button>
+        type="submit"
+        disabled={loading}
+        >  {loading ? "שולח..." : "שלח"}</button>
+        </form>
       </div> 
       )}
+      {message && <div className={styled.message}>{message}</div>}
     </>
   )
 }

@@ -1,12 +1,12 @@
 import express from "express";
 const router = express.Router();
 
-import { firstTimeLogin } from "../controlls/user/userfirstlogin"
+import { UserSendEmail } from "../controlls/user/login/userSendEmail";
 
 
 
 router
-.post("/firstTimeLogin", firstTimeLogin)
+.post("/UserSendEmail", UserSendEmail)
 
 
 

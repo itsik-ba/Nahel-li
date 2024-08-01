@@ -11,7 +11,7 @@ const NewPassword = () => {
   return (
     
         <>
-        <div><h2>dsfsdfsdfsdf</h2></div>
+      
         </>
    
   )

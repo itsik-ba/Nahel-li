@@ -12,7 +12,7 @@ const Login:React.FC = ()  => {
   const handleLogin =  () => {
     try {
     
-      navigate("./NewPassword")
+      navigate("./mainApp")
     } catch (error) {
       console.log(error);
     }
