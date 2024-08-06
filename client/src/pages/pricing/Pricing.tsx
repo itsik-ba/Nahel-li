@@ -41,8 +41,13 @@ const Pricing = () => {
       navigate("/newPassword")
 
     } catch (error) {
-      console.error("Error sending email:", error);
-      setMessage("אירעה שגיאה בשליחת המייל. אנא נסה שוב.");
+      if (axios.isAxiosError(error)) {
+        console.error("Error sending email:", error.response?.data);
+        setMessage(error.response?.data?.error || "אירעה שגיאה בשליחת המייל. אנא נסה שוב.");
+      } else {
+        console.error("Unexpected error:", error);
+        setMessage("שגיאה בלתי צפויה אירעה.");
+      }
 
     } finally {
       setLoading(false);

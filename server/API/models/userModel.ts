@@ -8,22 +8,32 @@ const UserSchema = new mongoose.Schema({
     trim: true,
     lowercase: true,
   },
+
+  phone: {
+    type: String,
+    required: true,
+  },
+
   oneTimePassword: {
     type: String,
-    required: true, 
+   
   },
+
   newPassword: {
     type: String,
     default: "",
   },
+
   passwordChanged: {
     type: Boolean,
     default: false, 
   },
+
   customer: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Customer',
   },
+  
   selectedPlan: {
     type: String,
     enum: ['pro', 'starting', 'try'],

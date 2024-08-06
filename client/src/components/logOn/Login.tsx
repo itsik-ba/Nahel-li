@@ -49,11 +49,7 @@ const Login:React.FC = ()  => {
                   <button type="submit">התחבר</button>
                   </form>
                   </>
-     
-       
-
-   
-      </div>
+     </div>
       </div>
     </div>
     </>
