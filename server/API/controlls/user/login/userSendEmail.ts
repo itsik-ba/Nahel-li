@@ -1,11 +1,16 @@
 import nodemailer from 'nodemailer';
 import { Request, Response } from 'express';
 import UserModel from "../../../models/userModel";
-import { encryptEmail } from '../../../utils/cryptoUtils';
+import { encryptEmail } from '../../../utils/encryptutils';
 import bcrypt from 'bcrypt';
 import { randomPasswordGenerator } from '../../../utils/randomPassword';
 
-const secret = process.env.ENCRYPTION_SECRET || 'defaultSecret';
+const secret = process.env.ENCRYPTION_SECRET;
+
+if (!secret) {
+  throw new Error('ENCRYPTION_SECRET is not defined');
+}
+
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -28,13 +33,17 @@ export const UserSendEmail = async (req: Request, res: Response) => {
       return res.status(400).json({ error: 'פורמט מייל לא תקין' });
     }
 
-    const existingUser = await UserModel.findOne({ email: encryptEmail(email, secret) });
+    
+    const encryptedEmail = encryptEmail(email, secret!);
+    console.log('Encrypted Email:', encryptedEmail);
+    console.log('////////////////////////////////')
+    console.log('Original email:', email);
+    
+
+    const existingUser = await UserModel.findOne({ email: encryptedEmail });
     if (existingUser) {
       return res.status(400).json({ error: 'האימייל כבר קיים במערכת' });
     }
-
-    const encryptedEmail = encryptEmail(email, secret);
-    console.log('Encrypted Email:', encryptedEmail);
 
     let subject: string, text: string;
     switch (selectedPlan) {

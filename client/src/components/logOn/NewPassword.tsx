@@ -34,7 +34,7 @@ const NewPassword = () => {
         setMessage("הסיסמה שונתה בהצלחה");
       }
       
-      navigate("/mainAppPage")
+      navigate("/mainApp")
 
     } catch (error: any) {
       setMessage(error.response?.data?.message || "שגיאה בתהליך שינוי הסיסמה");

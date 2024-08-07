@@ -1,39 +1,49 @@
 import { Request, Response } from "express";
 import dotenv from 'dotenv';
 import UserModel from "../../../models/userModel";
-import { decryptEmail } from '../../../utils/cryptoUtils';
+import { decryptEmail } from '../../../utils/decryptutils';
 import bcrypt from 'bcrypt';
 
 dotenv.config();
-const secret = process.env.ENCRYPTION_SECRET || 'default';
+const secret = process.env.ENCRYPTION_SECRET;
+
+if (!secret) {
+  throw new Error('ENCRYPTION_SECRET is not defined');
+}
 
 export const userChangePassword = async (req: Request, res: Response) => {
   try {
     const { oneTimePassword, newPassword, phone, email } = req.body;
 
-    if (!oneTimePassword) { 
-      return res.status(400).json({ message: "סיסמא זמנית אינה נכונה" });
+    if (!oneTimePassword || !phone || !email || !newPassword) {
+      return res.status(400).json({ message: "חסרים פרטים נדרשים" });
     }
 
-    if (!phone) { 
-      return res.status(400).json({ message: "טלפון לא הוכנס" });
-    }
-   
-    let decryptedEmail: string;
-    try {
-      decryptedEmail = decryptEmail(email, secret);
-    } catch (decryptionError) {
-      console.error('Error decrypting email:', decryptionError);
-      return res.status(400).json({ message: "שגיאה בפענוח האימייל" });
-    }
+    const allUsers = await UserModel.find({});
 
-    const user = await UserModel.findOne({ email: decryptedEmail });
+
+    const user = allUsers.find(u => {
+      try {
+        const decryptedEmail = decryptEmail(u.email, secret);
+        console.log('Decrypted Email:', decryptedEmail);
+        
+        return decryptedEmail === email;
+      } catch (error) {
+        console.error('Error decrypting email:', error);
+        return false;
+      }
+    });
     
     if (!user) {
+      console.log('User not found for email:', email);
       return res.status(400).json({ message: "משתמש לא נמצא" });
     }
 
-    const isMatch = await bcrypt.compare(oneTimePassword, user.oneTimePassword!);
+    if (!user.oneTimePassword) {
+      return res.status(400).json({ message: "סיסמה חד פעמית לא קיימת" });
+    }
+
+    const isMatch = await bcrypt.compare(oneTimePassword, user.oneTimePassword);
 
     if (!isMatch) {
       return res.status(400).json({ message: "סיסמה חד פעמית שגויה" });
