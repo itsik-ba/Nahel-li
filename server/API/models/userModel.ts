@@ -19,11 +19,6 @@ const UserSchema = new mongoose.Schema({
    
   },
 
-  encryptedEmail: {
-    type: String,
-   
-  },
-
   newPassword: {
     type: String,
     default: "",

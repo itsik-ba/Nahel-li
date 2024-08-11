@@ -10,10 +10,13 @@ const Login:React.FC = ()  => {
   const navigate = useNavigate()
   const [email, setemail] = useState('')
   const [newPassword, setNewPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState('');
 
    
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMessage('');
+
   try {
     const response = await axios.post("http://localhost:3000/user/userLogin" ,{
          email, 
@@ -22,12 +25,17 @@ const Login:React.FC = ()  => {
 
     console.log('Login successful:', response.data);
     
-      // navigate("./mainApp")
+      navigate("./mainApp")
     } catch (error:any) {
-      console.error('Login failed:', error.response ? error.response.data : error.message);
+      const message = error.response?.data?.message || 'Login failed. Please try again.';
+      console.error('Login failed:', message);
+      setErrorMessage(message);
     }
   }
 
+  const handleRegisterClick = () => {
+    navigate("/pricing"); 
+  }
 
 
   return (
@@ -62,6 +70,14 @@ const Login:React.FC = ()  => {
                       />
                   </div>
                   <button type="submit">התחבר</button>
+                  {errorMessage && <p className="error-message">{errorMessage}</p>}
+                
+                  <div>
+                  <button type="button" onClick={handleRegisterClick}>
+                  הרשמה
+                </button>
+                  </div>
+                
                   </form>
                   </>
      </div>
