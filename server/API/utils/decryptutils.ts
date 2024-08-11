@@ -3,14 +3,14 @@ import crypto from 'crypto';
 const algorithm = 'aes-256-cbc';
 const ivLength = 16; // 16 bytes for AES
 
-export function decryptEmail(encryptedEmail: string, secret: string): string {
-  console.log('Attempting to decrypt:', encryptedEmail);
+export function decryptData(encryptedData: string, secret: string): string {
+  console.log('Attempting to decrypt:', encryptedData);
 
-  if (!encryptedEmail.includes(':')) {
+  if (!encryptedData.includes(':')) {
     throw new Error('Invalid encrypted email format');
   }
 
-  const [ivHex, encrypted] = encryptedEmail.split(':');
+  const [ivHex, encrypted] = encryptedData.split(':');
   console.log('IV (hex):', ivHex);
   console.log('Encrypted part:', encrypted);
 

@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import dotenv from 'dotenv';
 import UserModel from "../../../models/userModel";
-import { decryptEmail } from '../../../utils/decryptutils';
+import { decryptData } from '../../../utils/decryptutils';
+import { encryptData } from '../../../utils/encryptutils';
 import bcrypt from 'bcrypt';
 
 dotenv.config();
@@ -24,7 +25,7 @@ export const userChangePassword = async (req: Request, res: Response) => {
 
     const user = allUsers.find(u => {
       try {
-        const decryptedEmail = decryptEmail(u.email, secret);
+        const decryptedEmail = decryptData(u.email, secret);
         console.log('Decrypted Email:', decryptedEmail);
         
         return decryptedEmail === email;
@@ -50,11 +51,11 @@ export const userChangePassword = async (req: Request, res: Response) => {
     }
 
     const hashedNewPassword = await bcrypt.hash(newPassword, 10);
-      
-    // Update the model and save the user
+    const encryptedPhone = encryptData(phone, secret);
+    
     user.newPassword = hashedNewPassword;
-    user.phone = phone;
-    user.oneTimePassword = ""; // Clear the OTP after use
+    user.phone = encryptedPhone;
+    user.oneTimePassword = ""; 
     user.passwordChanged = true;
 
     await user.save();

@@ -3,6 +3,7 @@ import Pricing from "../pages/pricing/Pricing"
 import HomePage from "../pages/homePage/HomePage"
 import MainAppPage from "../pages/mainApp/MainAppPage"
 import NewPassword from "../components/logOn/NewPassword"
+import ForgotPassword from "../components/logOn/ForgotPassword"
 
 
 
@@ -18,6 +19,7 @@ return (
 
          <Route path="/mainApp" element={<MainAppPage/>} />
          <Route path="/newPassword" element={<NewPassword/>} />
+         <Route path="/forgotPassword" element={<ForgotPassword/>} />
       
         
         

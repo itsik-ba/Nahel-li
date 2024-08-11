@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import { Request, Response } from 'express';
 import UserModel from "../../../models/userModel";
-import { encryptEmail } from '../../../utils/encryptutils';
+import { encryptData } from '../../../utils/encryptutils';
 import bcrypt from 'bcrypt';
 import { randomPasswordGenerator } from '../../../utils/randomPassword';
 
@@ -34,10 +34,8 @@ export const UserSendEmail = async (req: Request, res: Response) => {
     }
 
     
-    const encryptedEmail = encryptEmail(email, secret!);
-    console.log('Encrypted Email:', encryptedEmail);
-    console.log('////////////////////////////////')
-    console.log('Original email:', email);
+    const encryptedEmail = encryptData(email, secret!);
+   
     
 
     const existingUser = await UserModel.findOne({ email: encryptedEmail });

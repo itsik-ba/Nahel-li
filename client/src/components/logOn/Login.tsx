@@ -37,6 +37,10 @@ const Login:React.FC = ()  => {
     navigate("/pricing"); 
   }
 
+  const handleForgotPassword = () => {
+    navigate("/forgotPassword"); 
+  }
+
 
   return (
     <>
@@ -46,7 +50,13 @@ const Login:React.FC = ()  => {
       
      
      <div className={styles.card}>
+     <div>
+                  <button type="button" onClick={handleRegisterClick}>
+                  הרשמה
+                </button>
+                  </div>
        <> <form dir="rtl" onSubmit={handleLogin}>
+      
                <div className="userEmail">
                   <label htmlFor="userEmail">מייל:</label>
                   <input
@@ -71,14 +81,10 @@ const Login:React.FC = ()  => {
                   </div>
                   <button type="submit">התחבר</button>
                   {errorMessage && <p className="error-message">{errorMessage}</p>}
-                
-                  <div>
-                  <button type="button" onClick={handleRegisterClick}>
-                  הרשמה
-                </button>
-                  </div>
-                
-                  </form>
+                <div>
+                  <p  onClick={handleForgotPassword}>שכחתי סיסמה</p>
+                </div>
+                </form>
                   </>
      </div>
       </div>

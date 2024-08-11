@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import UserModel from "../../../models/userModel";
-import { decryptEmail } from '../../../utils/decryptutils';
+import { decryptData } from '../../../utils/decryptutils';
 
 const secret = process.env.ENCRYPTION_SECRET;
 
@@ -20,7 +20,7 @@ export const userLogin = async (req: Request, res: Response) => {
     const allUsers = await UserModel.find({});
    
     const user = allUsers.find(u => {
-        const decryptedEmail = decryptEmail(u.email, secret);
+        const decryptedEmail = decryptData(u.email, secret);
         
         return decryptedEmail === email;
     });
