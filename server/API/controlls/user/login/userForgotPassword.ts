@@ -3,6 +3,7 @@ import { randomPasswordGenerator } from '../../../utils/randomPassword';
 import UserModel from "../../../models/userModel";
 import { decryptData } from '../../../utils/decryptutils';
 import nodemailer from 'nodemailer';
+import crypto from 'crypto';
 
 
 const secret = process.env.ENCRYPTION_SECRET;
@@ -45,15 +46,22 @@ export const forgotPassword = async (req: Request, res: Response) => {
     }
 
     const randomPassword = randomPasswordGenerator();
-    const subject = 'מייל לשחזור סיסמה'
-    const mailText = ''
+    const subject = 'מייל לשחזור סיסמה';
+    const token = crypto.randomBytes(20).toString('hex');
+    console.log(token)
+
+    user.resetPasswordToken = token;
+    user.resetPasswordExpires = new Date(Date.now() + 600000); 
+    await user.save();
+   
+    const resetLink = `http://yourdomain.com/reset-password?token=${token}`;
     
-  const mailOptions = {
+   const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
       subject: subject,
-      text: mailText
-    };
+      text: `לחץ על הקישור כדי לשחזר את הסיסמה שלך: ${resetLink}`
+     };
 
     await transporter.sendMail(mailOptions);
 
