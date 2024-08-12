@@ -1,17 +1,43 @@
 import React, { useState } from 'react';
 import styles from "./forgotPassword.module.css";
+import axios from 'axios';
 
  const ForgotPassword: React.FC = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleForgotPassword = async (e: React.FormEvent<HTMLFormElement>) => {
+
+ const handleForgotPassword = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMessage('');
 
-    // Your forgot password logic here
+    try {
+      
+     const response = await axios.post("http://localhost:3000/user/forgotPassword" ,{
+         email, 
+         phone
+    })
+
+    console.log('Response status:', response.status);
+
+
+    } catch (error:any) {
+      const message = error.response?.data?.message || 'reset password failed. Please try again.';
+      console.error('reset password failed:', message);
+      setErrorMessage(message);
+    }
+   
+
+
   }
+
+
+
+
+
+
+
 
   return (
     <div dir="rtl" className={styles.mainContainer}>

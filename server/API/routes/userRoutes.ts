@@ -12,7 +12,7 @@ router
 .post("/UserSendEmail", UserSendEmail)
 .post('/userChangePassword', userChangePassword)
 .post('/userLogin', userLogin)
-.post('forgotPassword', forgotPassword)
+.post('/forgotPassword', forgotPassword)
 
 
 
